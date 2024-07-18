@@ -17,23 +17,23 @@ It is a case study using SQL to analyze an online movie rental company with a da
 I employ simple SQL queries to extract and aggregate data from the database and use more complex queries with **GROUP BY, LEFT JOIN, and sub-queries** to gain insights into customer preferences. Then, I use nested and correlated nested queries, utilizing functions like **EXISTS and UNION** to categorize customers, movies, actors, and more. Finally, I apply **OLAP extensions in SQL, such as CUBE, ROLLUP, and GROUPING SETS** operators, to aggregate data on multiple levels for deeper analysis.
 
 ## 💡 Highlight Findings
-**Revenue & Performance Metrics**
+**Revenue & Performance Metrics**  
 This part aims to help prioritize marketing strategies and resource allocations by focusing on high-performing movie categories in terms of revenue, ratings, and rental performance.
 - Income each movie generates
-- Revenue performance on different movie categories
+- Revenue performance in different movie categories
 - KPIs per country (revenue, renting times, movie rating)
 
-**Customer Insights**
+**Customer Insights**  
 This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.
 - Often rented movie
 - Most Frequent and less frequent customer
 
-**Movie and Actor Information**
+**Movie and Actor Information**  
 This part aids in inventory management to ensure popular movies are readily available and leverages popular actors to boost viewership and market appeal.
 - Number of times each movie is rented
-- Name and average rating for each actor under male and female customers in specific country
-- Movie with rating above average
-- Actors in specific category movie
+- Name and average rating for each actor under male and female customers in the specific country
+- Movie with a rating above average
+- Actors in specific categories of movie
 - Actors' background (nationality, age, gender, popularity, movies)
 
 
