@@ -1,6 +1,6 @@
 # 🎬 Movie Analysis in SQL
 It is a case study using SQL to analyze an online movie rental company with a database of customer information, movie ratings, background information on actors, and more.
-## Dataset
+## 🔍 Dataset
 - Movie
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/c464866b-a023-4a59-937b-8bad3a738ca2">
 
@@ -17,18 +17,18 @@ It is a case study using SQL to analyze an online movie rental company with a da
 I employ simple SQL queries to extract and aggregate data from the database and use more complex queries with **GROUP BY, LEFT JOIN, and sub-queries** to gain insights into customer preferences. Then, I use nested and correlated nested queries, utilizing functions like **EXISTS and UNION** to categorize customers, movies, actors, and more. Finally, I apply **OLAP extensions in SQL, such as CUBE, ROLLUP, and GROUPING SETS** operators, to aggregate data on multiple levels for deeper analysis.
 
 ## 💡 Highlight Findings
-**Revenue & Performance Metrics**  
+**1. Revenue & Performance Metrics**  
 This part aims to help prioritize marketing strategies and resource allocations by focusing on high-performing movie categories in terms of revenue, ratings, and rental performance.
 - Income each movie generates
 - Revenue performance in different movie categories
 - KPIs per country (revenue, renting times, movie rating)
 
-**Customer Insights**  
+**2. Customer Insights**  
 This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.
 - Often rented movie
 - Most Frequent and less frequent customer
 
-**Movie and Actor Information**  
+**3. Movie and Actor Information**  
 This part aids in inventory management to ensure popular movies are readily available and leverages popular actors to boost viewership and market appeal.
 - Number of times each movie is rented
 - Name and average rating for each actor under male and female customers in the specific country
