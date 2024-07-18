@@ -22,7 +22,7 @@ It is a case study using SQL to analyze an online movie rental company with a da
 
 
 ## 👩🏻‍💻 SQL queries
-I employ simple SQL queries to extract and aggregate data from the database and use more complex queries with **GROUP BY, LEFT JOIN, and sub-queries** to gain insights into customer preferences. Then, I use nested and correlated nested queries, utilizing functions like **EXISTS and UNION** to categorize customers, movies, actors, and more. Finally, I apply **OLAP extensions in SQL, such as CUBE, ROLLUP, and GROUPING SETS** operators, to aggregate data on multiple levels for deeper analysis.
+I employ simple SQL queries to extract and aggregate data from the relational database and use more complex queries with **GROUP BY, LEFT JOIN, and sub-queries** to gain insights into customer preferences. Then, I use nested and correlated nested queries, utilizing functions like **EXISTS and UNION** to categorize customers, movies, actors, and more. Finally, I apply **OLAP extensions in SQL, such as CUBE, ROLLUP, and GROUPING SETS** operators, to aggregate data on multiple levels for deeper analysis.
 
 
 ## 💡 Highlight Findings
