@@ -27,9 +27,10 @@ I employ simple SQL queries to extract and aggregate data from the relational da
 
 ## 💡 Highlight Findings
 **1. Revenue & Performance Metrics**  
-This part aims to help prioritize marketing strategies and resource allocations by focusing on high-performing movie categories in terms of revenue, ratings, and rental performance.
-- Income each movie generates
-  ✏️ 'Bridget Jones- The Edge of Reason' is the top-seller in the rental company.
+This part aims to help prioritize marketing strategies and resource allocations by focusing on high-performing movie categories in terms of revenue, ratings, and rental performance.  
+
+**Income each movie generates**  
+✏️ 'Bridget Jones- The Edge of Reason' is the top-seller in the rental company.
 ```SQL
 Select rm.title as movie_title, ROUND(SUM(rm.renting_price),2) as total_revenue
 From
@@ -40,8 +41,8 @@ Group by rm.title
 Order by total_revenue DESC;
  ```
 
-- Revenue performance in different movie categories
-  ✏️ Movies in the Drama genre generate the highest revenue, while those in the Art genre generate the lowest.
+**Revenue performance in different movie categories**  
+✏️ Movies in the Drama genre generate the highest revenue, while those in the Art genre generate the lowest.
 ```SQL
 Select rm.genre as movie_title, ROUND(SUM(rm.renting_price),2) as total_revenue
 From
@@ -52,11 +53,10 @@ Group by rm.genre
 Order by total_revenue DESC;
 ```
 
-- KPIs per country:
+**KPIs per country**
   - Customer engagement: Number of active customers measured by the number of rentals.
   - Customer satisfaction: This could be quantified by the average rating of all movies.
   - Revenue: Revenue is a trivial indicator of success, for MovieNow this is calculated as the sum of the price for rented movies.
-
 ```SQL
 SELECT 
 	c.country,                                 -- For each country report
