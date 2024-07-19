@@ -29,7 +29,7 @@ I employ simple SQL queries to extract and aggregate data from the relational da
 **1. Revenue & Performance Metrics**  
 This part aims to help prioritize marketing strategies and resource allocations by focusing on high-performing movie categories in terms of revenue, ratings, and rental performance.
 - Income each movie generates
-✏️ 'Bridget Jones- The Edge of Reason' is the top-seller in the rental company.
+  ✏️ 'Bridget Jones- The Edge of Reason' is the top-seller in the rental company.
 ```SQL
 Select rm.title as movie_title, ROUND(SUM(rm.renting_price),2) as total_revenue
 From
@@ -41,7 +41,7 @@ Order by total_revenue DESC;
  ```
 
 - Revenue performance in different movie categories
-✏️ Movies in the Drama genre generate the highest revenue, while those in the Art genre generate the lowest.
+  ✏️ Movies in the Drama genre generate the highest revenue, while those in the Art genre generate the lowest.
 ```SQL
 Select rm.genre as movie_title, ROUND(SUM(rm.renting_price),2) as total_revenue
 From
