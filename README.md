@@ -1,4 +1,4 @@
-# 🎬 Movie Analysis in SQL
+# 🎬  Data-Driven Analysis in SQL
 It is a case study using SQL queries (JOIN, GROUP BY, Esist, OLAP) to analyze a movie rental company called Movie ow with a customer information database, movie ratings, background information on actors, and more.
 ## 🔍 Dataset
 - Movie
