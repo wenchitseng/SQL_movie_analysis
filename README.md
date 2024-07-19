@@ -72,10 +72,23 @@ ON m.movie_id = r.movie_id
 GROUP BY c.country;       --- Examine KPIs by Country
 ```
 
-** ⓶ Customer Insights**  
-This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.
-- Often rented movie
-- Most Frequent and less frequent customer
+ ### ⓶ Customer Insights**  
+This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.  
+**Often rented movie**  
+✏️ The top five frequently rented movies are in the Drama and Comedy genres, reflecting customer preferences and trends. Among them, 'One Night at McCool's' (Comedy), 'Swordfish' (Drama), and 'What Women Want' (Comedy) are the top three. The company should ensure these three movies are always in stock to meet customer demand.
+```SQL
+SELECT *
+FROM movies
+WHERE movie_id IN     -- Select movie IDs from the inner query
+	(SELECT movie_id
+	FROM renting
+	GROUP BY movie_id
+	HAVING COUNT(*) > 5);
+```
+**Average rating per customer**
+
+
+**Most Frequent and less frequent customers**
 
 ** ⓷ Movie and Actor Information**  
 This part aids in inventory management to ensure popular movies are readily available and leverages popular actors to boost viewership and market appeal.
