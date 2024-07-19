@@ -32,49 +32,27 @@ This part aims to help prioritize marketing strategies and resource allocations 
 **Income each movie generates**  
 ✏️ 'Bridget Jones- The Edge of Reason' is the top-seller in the rental company.
 ```SQL
-Select rm.title as movie_title, ROUND(SUM(rm.renting_price),2) as total_revenue
-From
-	(Select m.title, m.renting_price
-	 From renting r left join movies m
-	 on r.movie_id = m.movie_id) AS rm
-Group by rm.title
-Order by total_revenue DESC;
+SELECT rm.title as movie_title, ROUND(SUM(rm.renting_price),2) AS total_revenue
+FROM
+	(SELECT m.title, m.renting_price
+	 FROM renting r LEFT JOIN movies m
+	 ON r.movie_id = m.movie_id) AS rm
+GROUP BY rm.title
+ORDER BY total_revenue DESC;
  ```
 
 **Revenue performance in different movie categories**  
 ✏️ Movies in the Drama genre generate the highest revenue, while those in the Art genre generate the lowest.
 ```SQL
-Select rm.genre as movie_title, ROUND(SUM(rm.renting_price),2) as total_revenue
-From
-	(Select m.genre, m.renting_price
-	 From renting r left join movies m
-	 on r.movie_id = m.movie_id) AS rm
-Group by rm.genre
-Order by total_revenue DESC;
+SELECT rm.genre, AS movie_title, ROUND(SUM(rm.renting_price),2) AS total_revenue
+FROM
+	(SELECT m.genre, m.renting_price
+	 FROM renting r LEFT JOIN movies m
+	 ON r.movie_id = m.movie_id) AS rm
+GROUP BY rm.genre
+ORDER BY total_revenue DESC;
 ```
 
-**KPIs per country**  
-✏️ The KPIs provide the company with an overview of rental performance and customer engagement in different countries, allowing for adjustments in marketing strategies.
-  - Customer engagement: Number of active customers measured by the number of rentals.
-  - Customer satisfaction: This could be quantified by the average rating of all movies.
-  - Revenue: Revenue is a trivial indicator of success, for MovieNow this is calculated as the sum of the price for rented movies.
-```SQL
-SELECT 
-	c.country,                                 -- For each country report
-	COUNT(*) AS number_renting,                -- The number of movie rentals
-	Round(AVG(r.rating),2) AS average_rating,  -- The average rating (round up to 2 decimal)
-	Round(SUM(m.renting_price),2) AS revenue   -- The revenue from movie rentals (round up to 2 decimal)
-FROM renting AS r
-LEFT JOIN customer AS c
-ON c.customer_id = r.customer_id
-LEFT JOIN movies AS m
-ON m.movie_id = r.movie_id
-GROUP BY c.country;       --- Examine KPIs by Country
-```
-
- ### ⓶ Customer Insights 
-This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.  
-  
 **Often rented movie**  
 ✏️ The top five frequently rented movies are in the Drama and Comedy genres, reflecting customer preferences and trends. Among them, 'One Night at McCool's' (Comedy), 'Swordfish' (Drama), and 'What Women Want' (Comedy) are the top three. The company should ensure these three movies are always in stock to meet customer demand.
 ```SQL
@@ -86,10 +64,60 @@ WHERE movie_id IN     -- Select movie IDs from the inner query
 	GROUP BY movie_id
 	HAVING COUNT(*) > 5);
 ```
-**Average rating per customer**
 
+**KPIs per country**  
+✏️ The KPIs provide the company with an overview of rental performance and customer engagement in different countries, allowing for adjustments in marketing strategies.
+  - Customer engagement: Number of active customers measured by the number of rentals.
+  - Customer satisfaction: This could be quantified by the average rating of all movies.
+  - Revenue: Revenue is a trivial indicator of success, for MovieNow this is calculated as the sum of the price for rented movies.
+```SQL
+SELECT 
+	c.country,                                 -- For each country report
+	COUNT(*) AS number_renting,                -- The number of movie rentals
+	ROUND(AVG(r.rating),2) AS average_rating,  -- The average rating (round up to 2 decimal)
+	ROUND(SUM(m.renting_price),2) AS revenue   -- The revenue from movie rentals (round up to 2 decimal)
+FROM renting AS r
+LEFT JOIN customer AS c
+ON c.customer_id = r.customer_id
+LEFT JOIN movies AS m
+ON m.movie_id = r.movie_id
+GROUP BY c.country;       --- Examine KPIs by Country
+```
 
-**Most Frequent and less frequent customers**
+ ### ⓶ Customer Insights 
+This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.  
+**Average rating per customer**  
+✏️ From the results, the company can see how many times each customer has rented movies and how engaged they are in giving ratings and making purchases. By examining these results, the owner can develop marketing strategies to enhance the customer experience, such as loyalty programs or promotional campaigns, to encourage customer retention and involvement.
+```SQL
+SELECT customer_id,
+       ROUND(AVG(rating),2) as average_rating,
+       COUNT(rating) as times_of_rating,
+       COUNT(*) as time_of_renting
+FROM renting
+GROUP BY customer_id
+ORDER BY AVG(rating) DESC;
+```
+
+**Most Frequent and less frequent customers**  
+```SQL
+SELECT *
+FROM customer
+WHERE customer_id IN            -- Select all customers with more than 10 movie rentals
+	(SELECT customer_id
+	 FROM renting
+	 GROUP BY customer_id
+	 Having Count(*) > 10 );
+```
+```SQL
+SELECT *
+FROM customer
+WHERE customer_id IN (         -- Select all customers with less than 3 movie rentals
+    SELECT customer_id
+    FROM renting
+    GROUP BY customer_id
+    HAVING COUNT(*) < 3
+);
+```
 
 ⓷ Movie and Actor Information**  
 This part aids in inventory management to ensure popular movies are readily available and leverages popular actors to boost viewership and market appeal.
