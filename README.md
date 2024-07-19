@@ -22,7 +22,7 @@ It is a case study using SQL queries (JOIN, GROUP BY, Esist, OLAP) to analyze **
 
 
 ## 👩🏻‍💻 SQL queries
-I employ simple SQL queries to extract and aggregate data from the relational database and use more complex queries with **GROUP BY, LEFT JOIN, and sub-queries** to gain insights into customer preferences. Then, I use nested and correlated nested queries, utilizing functions like **EXISTS and UNION** to categorize customers, movies, actors, and more. Finally, I apply **OLAP extensions in SQL, such as CUBE, ROLLUP, and GROUPING SETS** operators, to aggregate data on multiple levels for deeper analysis.
+**GROUP BY, LEFT JOIN, OLAP (ROLLUP, GROUPING SETS) and sub-queries**
 
 
 ## 💡 Highlight Findings
