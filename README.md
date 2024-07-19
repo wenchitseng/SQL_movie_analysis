@@ -88,8 +88,9 @@ GROUP BY c.country;       --- Examine KPIs by Country
 ```
 
  ### ⓶ Customer Insights 
-This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.  
-**Demographic information of customers**
+This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.    
+
+**Demographic information of customers**  
 ✏️ The customers who rent the most are women from Italy.
 ```SQL
 SELECT country,
