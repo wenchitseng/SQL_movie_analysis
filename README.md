@@ -72,7 +72,7 @@ ON m.movie_id = r.movie_id
 GROUP BY c.country;       --- Examine KPIs by Country
 ```
 
- ### ⓶ Customer Insights**  
+ ### ⓶ Customer Insights 
 This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.  
   
 **Often rented movie**  
@@ -91,10 +91,10 @@ WHERE movie_id IN     -- Select movie IDs from the inner query
 
 **Most Frequent and less frequent customers**
 
-** ⓷ Movie and Actor Information**  
+⓷ Movie and Actor Information**  
 This part aids in inventory management to ensure popular movies are readily available and leverages popular actors to boost viewership and market appeal.
 - Number of times each movie is rented
-- Name and average rating for each actor under male and female customers in the specific country
+- Name and the average rating for each actor under male and female customers in the specific country
 - Movie with a rating above average
 - Actors in specific categories of movie
 - Actors' background (nationality, age, gender, popularity, movies)
