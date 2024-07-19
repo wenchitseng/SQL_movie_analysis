@@ -30,7 +30,10 @@ I employ simple SQL queries to extract and aggregate data from the relational da
 This part aims to help prioritize marketing strategies and resource allocations by focusing on high-performing movie categories in terms of revenue, ratings, and rental performance.
 - Income each movie generates
 - Revenue performance in different movie categories
-- KPIs per country (revenue, renting times, movie rating)
+- KPIs per country:
+  - Revenue: Revenue is a trivial indicator of success, for MovieNow this is calculated as the sum of the price for rented movies.
+  - Customer satisfaction: This could be quantified by the average rating of all movies.
+  - Customer engagement: Number of active customers in a certain period.
 
 **2. Customer Insights**  
 This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.
