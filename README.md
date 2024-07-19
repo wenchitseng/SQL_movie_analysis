@@ -29,8 +29,9 @@ I employ simple SQL queries to extract and aggregate data from the relational da
 **1. Revenue & Performance Metrics**  
 This part aims to help prioritize marketing strategies and resource allocations by focusing on high-performing movie categories in terms of revenue, ratings, and rental performance.
 - Income each movie generates
+✏️ 'Bridget Jones- The Edge of Reason' is the top-seller in the rental company.
 ```SQL
-  Select rm.title as movie_title, ROUND(SUM(rm.renting_price),2) as total_revenue
+Select rm.title as movie_title, ROUND(SUM(rm.renting_price),2) as total_revenue
 From
 	(Select m.title, m.renting_price
 	 From renting r left join movies m
@@ -40,10 +41,35 @@ Order by total_revenue DESC;
  ```
 
 - Revenue performance in different movie categories
+✏️ Movies in the Drama genre generate the highest revenue, while those in the Art genre generate the lowest.
+```SQL
+Select rm.genre as movie_title, ROUND(SUM(rm.renting_price),2) as total_revenue
+From
+	(Select m.genre, m.renting_price
+	 From renting r left join movies m
+	 on r.movie_id = m.movie_id) AS rm
+Group by rm.genre
+Order by total_revenue DESC;
+```
+
 - KPIs per country:
-  - Revenue: Revenue is a trivial indicator of success, for MovieNow this is calculated as the sum of the price for rented movies.
+  - Customer engagement: Number of active customers measured by the number of rentals.
   - Customer satisfaction: This could be quantified by the average rating of all movies.
-  - Customer engagement: Number of active customers in a certain period.
+  - Revenue: Revenue is a trivial indicator of success, for MovieNow this is calculated as the sum of the price for rented movies.
+
+```SQL
+SELECT 
+	c.country,                                 -- For each country report
+	COUNT(*) AS number_renting,                -- The number of movie rentals
+	Round(AVG(r.rating),2) AS average_rating,  -- The average rating (round up to 2 decimal)
+	Round(SUM(m.renting_price),2) AS revenue   -- The revenue from movie rentals (round up to 2 decimal)
+FROM renting AS r
+LEFT JOIN customer AS c
+ON c.customer_id = r.customer_id
+LEFT JOIN movies AS m
+ON m.movie_id = r.movie_id
+GROUP BY c.country;       --- Examine KPIs by Country
+```
 
 **2. Customer Insights**  
 This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.
