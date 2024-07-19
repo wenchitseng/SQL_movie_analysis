@@ -1,8 +1,8 @@
 # 🎬  Data-Driven Analysis in SQL
 It is a case study using SQL queries (JOIN, GROUP BY, Esist, OLAP) to analyze **a movie rental company called MovieNow** with a customer information database, movie ratings, background information on actors, and more.
 ## 🔍 Dataset
-- Movie
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/c464866b-a023-4a59-937b-8bad3a738ca2">
+- Movie                                                                                                             - Customer of the online movie rental company
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/c464866b-a023-4a59-937b-8bad3a738ca2"><img width="500" alt="image" src="https://github.com/user-attachments/assets/38679a5e-c475-4e70-af7d-334697eb4e6c">
 
   
 - Customer of the online movie rental company
