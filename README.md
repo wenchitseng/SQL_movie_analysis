@@ -156,7 +156,7 @@ WHERE customer_id IN (         -- Select all customers with less than 3 movie re
 );
 ```
 
-⓷ Movie and Actor Information 
+### ⓷ Movie and Actor Information 
 This part aids in extra information about the actor.  
 
 **Actors' background (nationality, age, gender, popularity, movies)**
