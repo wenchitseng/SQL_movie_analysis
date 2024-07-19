@@ -86,6 +86,17 @@ GROUP BY c.country;       --- Examine KPIs by Country
 
  ### ⓶ Customer Insights 
 This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.  
+**Demographic information of customers**
+✏️ The customers who rent the most are women from Italy.
+```SQL
+SELECT country,
+       gender,
+	   COUNT(*) as number_of_customer
+FROM customer
+GROUP BY ROLLUP (country, gender)  -- Use ROLLUP to generate hierarchical data summaries  
+ORDER BY country, gender;          -- Order the result by country and gender
+```
+
 **Average rating per customer**  
 ✏️ From the results, the company can see how many times each customer has rented movies and how engaged they are in giving ratings and making purchases. By examining these results, the owner can develop marketing strategies to enhance the customer experience, such as loyalty programs or promotional campaigns, to encourage customer retention and involvement.
 ```SQL
@@ -98,6 +109,28 @@ GROUP BY customer_id
 ORDER BY AVG(rating) DESC;
 ```
 
+**Customer preference for actor**
+✏️ While the movies featuring Violante Placido are highly rated by audiences, they do not translate to strong sales performance. The discrepancy suggests that these movies may not have broad commercial appeal or effective marketing strategies to drive sales.    
+```SQL
+SELECT a.name as actor_name,
+	   a.nationality as nationality,
+       a.gender,
+	   ROUND(AVG(r.rating),2) AS avg_rating,     -- The average ratings of the movies the actors are involved in
+	   COUNT(*) AS n_rentals                     -- The number of movie rentals shows how popular the movie is 
+FROM renting AS r
+LEFT JOIN actsin AS ai
+ON ai.movie_id = r.movie_id
+LEFT JOIN actor AS a
+ON ai.actor_id = a.actor_id
+WHERE r.movie_id IN ( 
+	SELECT movie_id
+	FROM renting
+	GROUP BY movie_id
+	HAVING COUNT(rating) >=4 )
+AND r.date_renting >= '2018-04-01'
+GROUP BY a.name, a.nationality, a.gender
+ORDER BY avg_rating DESC;
+```
 **Most Frequent and less frequent customers**  
 ```SQL
 SELECT *
@@ -119,13 +152,18 @@ WHERE customer_id IN (         -- Select all customers with less than 3 movie re
 );
 ```
 
-⓷ Movie and Actor Information**  
-This part aids in inventory management to ensure popular movies are readily available and leverages popular actors to boost viewership and market appeal.
-- Number of times each movie is rented
-- Name and the average rating for each actor under male and female customers in the specific country
-- Movie with a rating above average
-- Actors in specific categories of movie
-- Actors' background (nationality, age, gender, popularity, movies)
+⓷ Movie and Actor Information 
+This part aids in extra information about the actor.  
+
+**Actors' background (nationality, age, gender, popularity, movies)**
+```SQL
+SELECT 
+	nationality,  -- Select nationality of the actors
+    gender,       -- Select gender of the actors
+    COUNT(*)      -- Count the number of actors
+FROM actors
+GROUP BY GROUPING SETS ((nationality), (gender), ());
+```
 
 
 
