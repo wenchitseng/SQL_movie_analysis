@@ -26,7 +26,7 @@ I employ simple SQL queries to extract and aggregate data from the relational da
 
 
 ## 💡 Highlight Findings
-**1. Revenue & Performance Metrics**  
+### 1. Revenue & Performance Metrics
 This part aims to help prioritize marketing strategies and resource allocations by focusing on high-performing movie categories in terms of revenue, ratings, and rental performance.  
 
 **Income each movie generates**  
@@ -57,6 +57,7 @@ Order by total_revenue DESC;
   - Customer engagement: Number of active customers measured by the number of rentals.
   - Customer satisfaction: This could be quantified by the average rating of all movies.
   - Revenue: Revenue is a trivial indicator of success, for MovieNow this is calculated as the sum of the price for rented movies.
+✏️ The KPIs provide the company with an overview of rental performance and customer engagement in different countries, allowing for adjustments in marketing strategies.
 ```SQL
 SELECT 
 	c.country,                                 -- For each country report
