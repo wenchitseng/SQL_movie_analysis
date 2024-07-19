@@ -22,7 +22,10 @@ It is a case study using SQL queries (JOIN, GROUP BY, Esist, OLAP) to analyze **
 
 
 ## 👩🏻‍💻 SQL queries
-**GROUP BY, LEFT JOIN, OLAP (ROLLUP, GROUPING SETS) and sub-queries**
+1. GROUP BY
+2. LEFT JOIN
+3. OLAP (ROLLUP, GROUPING SETS)
+4. Sub-queries
 
 
 ## 💡 Highlight Findings
