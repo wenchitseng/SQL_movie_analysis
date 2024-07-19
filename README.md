@@ -109,8 +109,8 @@ GROUP BY customer_id
 ORDER BY AVG(rating) DESC;
 ```
 
-**Customer preference for actor**
-✏️ While the movies featuring Violante Placido are highly rated by audiences, they do not translate to strong sales performance. The discrepancy suggests that these movies may not have broad commercial appeal or effective marketing strategies to drive sales.    
+**Customer preference for actor**  
+✏️ While the movies featuring Violante Placido are highly rated by audiences, they do not translate to strong sales performance. The discrepancy suggests that these movies may not have broad commercial appeal or effective marketing strategies to drive sales.  
 ```SQL
 SELECT a.name as actor_name,
 	   a.nationality as nationality,
@@ -131,6 +131,7 @@ AND r.date_renting >= '2018-04-01'
 GROUP BY a.name, a.nationality, a.gender
 ORDER BY avg_rating DESC;
 ```
+
 **Most Frequent and less frequent customers**  
 ```SQL
 SELECT *
