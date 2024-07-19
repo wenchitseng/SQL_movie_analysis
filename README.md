@@ -26,7 +26,7 @@ I employ simple SQL queries to extract and aggregate data from the relational da
 
 
 ## 💡 Highlight Findings
-### Revenue & Performance Metrics
+### ⓵ Revenue & Performance Metrics
 This part aims to help prioritize marketing strategies and resource allocations by focusing on high-performing movie categories in terms of revenue, ratings, and rental performance.  
 
 **Income each movie generates**  
@@ -72,12 +72,12 @@ ON m.movie_id = r.movie_id
 GROUP BY c.country;       --- Examine KPIs by Country
 ```
 
-**2. Customer Insights**  
+** ⓶ Customer Insights**  
 This part focuses on customer behaviors to help the company develop personalized marketing and effective promotional campaigns, such as loyalty programs and re-engagement promotions.
 - Often rented movie
 - Most Frequent and less frequent customer
 
-**3. Movie and Actor Information**  
+** ⓷ Movie and Actor Information**  
 This part aids in inventory management to ensure popular movies are readily available and leverages popular actors to boost viewership and market appeal.
 - Number of times each movie is rented
 - Name and average rating for each actor under male and female customers in the specific country
