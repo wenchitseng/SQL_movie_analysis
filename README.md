@@ -27,6 +27,9 @@ This case study uses SQL queries (JOIN, GROUP BY, EXIST, OLAP) to analyze **a mo
 3. OLAP (ROLLUP, GROUPING SETS)
 4. Sub-queries
 
+## Tableau Visualization
+https://public.tableau.com/views/ABCRentalMovieCompany/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+
 
 ## 💡 Highlight Findings
 ### ⓵ Revenue & Performance Metrics
