@@ -118,7 +118,7 @@ ORDER BY AVG(rating) DESC;
 ```SQL
 SELECT a.name as actor_name,
 	   a.nationality as nationality,
-       a.gender,
+           a.gender,
 	   ROUND(AVG(r.rating),2) AS avg_rating,     -- The average ratings of the movies the actors are involved in
 	   COUNT(*) AS n_rentals                     -- The number of movie rentals shows how popular the movie is 
 FROM renting AS r
