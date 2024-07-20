@@ -95,7 +95,7 @@ This part focuses on customer behaviors to help the company develop personalized
 ```SQL
 SELECT country,
        gender,
-	   COUNT(*) as number_of_customer
+       COUNT(*) as number_of_customer
 FROM customer
 GROUP BY ROLLUP (country, gender)  -- Use ROLLUP to generate hierarchical data summaries  
 ORDER BY country, gender;          -- Order the result by country and gender
@@ -117,10 +117,10 @@ ORDER BY AVG(rating) DESC;
 ✏️ While the movies featuring Violante Placido are highly rated by audiences, they do not translate to strong sales performance. The discrepancy suggests that these movies may not have broad commercial appeal or effective marketing strategies to drive sales.  
 ```SQL
 SELECT a.name as actor_name,
-	   a.nationality as nationality,
-           a.gender,
-	   ROUND(AVG(r.rating),2) AS avg_rating,     -- The average ratings of the movies the actors are involved in
-	   COUNT(*) AS n_rentals                     -- The number of movie rentals shows how popular the movie is 
+       a.nationality as nationality,
+       a.gender,
+       ROUND(AVG(r.rating),2) AS avg_rating,     -- The average ratings of the movies the actors are involved in
+       COUNT(*) AS n_rentals                     -- The number of movie rentals shows how popular the movie is 
 FROM renting AS r
 LEFT JOIN actsin AS ai
 ON ai.movie_id = r.movie_id
